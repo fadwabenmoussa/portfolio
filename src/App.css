@@ -476,7 +476,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* ========== SECTION AUTOMATION (NOUVELLE) ========== */
+/* ========== SECTION AUTOMATION  ========== */
 .automation-section {
   padding: 6rem 0;
   background: var(--darker);
@@ -795,7 +795,7 @@ body {
   font-family: 'Space Mono', monospace;
 }
 
-/* ========== MODAL CONTACT - VERSION FIXÉE ========== */
+/* ========== MODAL CONTACT ========== */
 .modal-overlay {
   position: fixed;
   top: 0;

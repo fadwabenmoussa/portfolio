@@ -15,7 +15,6 @@ function App() {
   const parallaxY2 = useTransform(scrollY, [0, 1000], [0, -100]);
   const parallaxY3 = useTransform(scrollY, [0, 1000], [0, -50]);
 
-  // Gestion du curseur personnalisé
   useEffect(() => {
     const handleMouseMove = (e) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
@@ -24,10 +23,9 @@ function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Détection de la section active au scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'automation', 'skills', 'projects', 'contact'];
+      const sections = ['home', 'about', 'expertise', 'skills', 'projects', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -42,7 +40,6 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Soumission du formulaire vers n8n
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('sending');
@@ -72,67 +69,60 @@ function App() {
   const projects = [
     {
       title: "Assistant Virtuel Hôtelier",
-      tech: "Vue.js · Flask · MongoDB · APIs",
-      description: "Chatbot intelligent avec workflows conversationnels et logique conditionnelle (if/else) pour recommandations personnalisées et réservations automatisées",
+      tech: "Vue.js · Flask · MongoDB · REST API",
+      description: "Application web Full Stack avec logique métier complexe (statuts, conditions, scénarios conversationnels), gestion des utilisateurs et réservations via API REST sécurisée.",
       color: "#FF6B9D",
       year: "2025"
     },
     {
-      title: "Automation Facebook & Messageries",
-      tech: "n8n · Webhooks · Google Sheets · APIs",
-      description: "Workflows automatisés pour gestion des messages et commentaires Facebook avec traitement conditionnel et synchronisation de données",
+      title: "Automatisation & APIs",
+      tech: "Webhooks · REST APIs · Logique conditionnelle",
+      description: "Workflows backend basés sur des webhooks et API REST : traitement, validation et normalisation de données, automatisation de processus métier, intégration avec bases de données et services externes.",
       color: "#4ECDC4",
-      year: "2024-2025"
+      year: "2024–2025"
     },
     {
       title: "Système de Gestion d'Inventaire",
       tech: "PHP · MySQL · Docker",
-      description: "Plateforme complète pour Tunisie Booking avec optimisation des processus internes et documentation technique",
+      description: "Développement et maintenance d'un système de gestion d'inventaire pour Tunisie Booking. Implémentation backend en PHP et MySQL, documentation technique et compréhension des besoins métier.",
       color: "#FFE66D",
-      year: "2024"
-    },
-    {
-      title: "Application de Gestion Multi-Modules",
-      tech: "Vue.js · Python · PostgreSQL · Scraping",
-      description: "Dashboard analytique, scraping de données web et gestion complète des utilisateurs avec authentification sécurisée",
-      color: "#95E1D3",
       year: "2024"
     }
   ];
 
   const skills = [
-    { name: "n8n & Automation", level: 95, color: "#FF6B9D" },
-    { name: "Webhooks & Triggers", level: 90, color: "#4ECDC4" },
+    { name: "JavaScript", level: 90, color: "#F7DF1E" },
+    { name: "React.js", level: 90, color: "#61DAFB" },
     { name: "Vue.js", level: 85, color: "#42B883" },
-    { name: "Python & Flask", level: 85, color: "#3776AB" },
-    { name: "JavaScript", level: 80, color: "#F7DF1E" },
+    { name: "Node.js / Express.js", level: 80, color: "#68A063" },
+    { name: "Python / Flask / FastAPI", level: 85, color: "#3776AB" },
+    { name: "REST APIs & Webhooks", level: 90, color: "#FF6B9D" },
     { name: "MongoDB", level: 80, color: "#47A248" },
-    { name: "MySQL & PostgreSQL", level: 85, color: "#336791" },
-    { name: "Docker & DevOps", level: 75, color: "#2496ED" },
-    { name: "PHP", level: 75, color: "#777BB4" },
-    { name: "Git & APIs", level: 90, color: "#F05032" }
+    { name: "PostgreSQL / MySQL", level: 85, color: "#336791" },
+    { name: "Docker & Git", level: 75, color: "#2496ED" },
+    { name: "PHP", level: 75, color: "#777BB4" }
   ];
 
-  const automationTools = [
+  const expertiseAreas = [
     {
-      name: "n8n",
-      description: "Workflows automatisés, intégrations multi-services",
+      name: "Frontend",
+      description: "Interfaces modernes avec React.js et Vue.js, HTML/CSS soigné",
+      icon: "🖥️"
+    },
+    {
+      name: "Backend & APIs",
+      description: "API REST robustes avec Node.js, Express, Flask et FastAPI",
+      icon: "⚙️"
+    },
+    {
+      name: "Bases de données",
+      description: "SQL (PostgreSQL, MySQL) et NoSQL (MongoDB) selon les besoins",
+      icon: "🗄️"
+    },
+    {
+      name: "Automatisation",
+      description: "Webhooks, logique conditionnelle, workflows backend automatisés",
       icon: "🔄"
-    },
-    {
-      name: "Webhooks",
-      description: "Événements en temps réel, déclencheurs automatiques",
-      icon: "🔗"
-    },
-    {
-      name: "Logique Conditionnelle",
-      description: "If/else, switch cases, routing intelligent",
-      icon: "⚡"
-    },
-    {
-      name: "API Integration",
-      description: "REST APIs, synchronisation de données",
-      icon: "🔌"
     }
   ];
 
@@ -170,7 +160,7 @@ function App() {
           </motion.div>
           
           <div className="nav-links">
-            {['Home', 'About', 'Automation', 'Skills', 'Projects', 'Contact'].map((item) => (
+            {['Home', 'About', 'Expertise', 'Skills', 'Projects', 'Contact'].map((item) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -201,7 +191,7 @@ function App() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              Automation Developer · n8n Specialist · Full Stack
+              Développeuse Full Stack & Automation · APIs REST
             </motion.h2>
             
             <motion.div 
@@ -214,11 +204,11 @@ function App() {
                 className="btn-arcade btn-primary"
                 whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255, 107, 157, 0.6)" }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => document.getElementById('automation').scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
               >
-                Voir mes automations
+                Voir mes projets
               </motion.button>
               
               <motion.button
@@ -246,11 +236,12 @@ function App() {
                 <pre className="code-snippet">
 {`const developer = {
   name: "Fadwa Ben Moussa",
-  role: "Automation Dev",
-  speciality: "n8n & Workflows",
-  passion: "Eliminate manual tasks",
+  role: "Full Stack Developer",
+  stack: ["React.js", "Vue.js", "Flask"],
+  apis: ["REST", "Webhooks", "FastAPI"],
+  databases: ["MongoDB", "PostgreSQL"],
   languages: ["AR", "FR", "EN", "DE"],
-  status: "Ready to automate 🚀"
+  status: "Open to opportunities 🚀"
 };`}
                 </pre>
               </div>
@@ -283,24 +274,23 @@ function App() {
                 transition={{ delay: 0.3 }}
               >
                 <p className="text-glow">
-                  Développeuse logicielle polyvalente, rigoureuse et orientée automation & workflows. 
-                  Spécialisée dans la création de solutions intelligentes qui réduisent les tâches manuelles 
-                  et les erreurs humaines.
+                  Développeuse Full Stack spécialisée en JavaScript et React.js, avec une solide expérience 
+                  en développement d'interfaces web modernes et en conception d'API REST.
                 </p>
                 <p>
-                  Forte compréhension des processus automatisés, des webhooks et de la logique conditionnelle. 
-                  Expérimentée en développement web full-stack et en intégration de solutions d'automation 
-                  avec n8n, APIs et workflows intelligents.
+                  À l'aise avec les architectures frontend/backend, les bases de données SQL et NoSQL, 
+                  et l'intégration de services backend en Python. Intéressée par les applications 
+                  à fort impact dans les domaines de la finance, sécurité et conformité.
                 </p>
                 <p>
-                  Actuellement en Master de recherche en Sciences Informatiques à l'ISI El Manar, 
-                  je transforme des processus complexes en systèmes automatisés efficaces.
+                  Actuellement en Master de recherche en Sciences Informatiques à l'ISI El Manar (Ariana), 
+                  après une Licence en Sciences Informatiques à l'Université de Sousse (2022–2025).
                 </p>
                 
                 <div className="stats-grid">
                   <div className="stat-card">
-                    <div className="stat-number">10+</div>
-                    <div className="stat-label">Workflows créés</div>
+                    <div className="stat-number">3+</div>
+                    <div className="stat-label">Projets réalisés</div>
                   </div>
                   <div className="stat-card">
                     <div className="stat-number">4</div>
@@ -308,7 +298,7 @@ function App() {
                   </div>
                   <div className="stat-card">
                     <div className="stat-number">∞</div>
-                    <div className="stat-label">Tâches automatisées</div>
+                    <div className="stat-label">Curiosité technique</div>
                   </div>
                 </div>
               </motion.div>
@@ -317,8 +307,8 @@ function App() {
         </div>
       </section>
 
-      {/* Section Automation (NOUVELLE) */}
-      <section id="automation" className="automation-section">
+      {/* Section Expertise */}
+      <section id="expertise" className="automation-section">
         <div className="container">
           <motion.h2 
             className="section-title"
@@ -327,14 +317,14 @@ function App() {
             viewport={{ once: true }}
           >
             <span className="title-bracket">{'<'}</span>
-            Expertise Automation
+            Expertise
             <span className="title-bracket">{'/>'}</span>
           </motion.h2>
           
           <div className="automation-grid">
-            {automationTools.map((tool, index) => (
+            {expertiseAreas.map((area, index) => (
               <motion.div
-                key={tool.name}
+                key={area.name}
                 className="automation-card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -347,9 +337,9 @@ function App() {
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
               >
-                <div className="automation-icon">{tool.icon}</div>
-                <h3 className="automation-title">{tool.name}</h3>
-                <p className="automation-description">{tool.description}</p>
+                <div className="automation-icon">{area.icon}</div>
+                <h3 className="automation-title">{area.name}</h3>
+                <p className="automation-description">{area.description}</p>
               </motion.div>
             ))}
           </div>
@@ -361,23 +351,23 @@ function App() {
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
           >
-            <h3 className="highlight-title">🎯 Ce que j'automatise</h3>
+            <h3 className="highlight-title">🎯 Ce que je construis</h3>
             <div className="highlight-content">
               <div className="highlight-item">
                 <span className="highlight-icon">✓</span>
-                <span>Gestion des messages et notifications multi-canaux</span>
+                <span>Interfaces web modernes et responsive avec React.js et Vue.js</span>
               </div>
               <div className="highlight-item">
                 <span className="highlight-icon">✓</span>
-                <span>Synchronisation de données entre applications (Sheets, DB, CRM)</span>
+                <span>API REST robustes avec Node.js, Express, Flask ou FastAPI</span>
               </div>
               <div className="highlight-item">
                 <span className="highlight-icon">✓</span>
-                <span>Workflows conditionnels avec triggers et webhooks</span>
+                <span>Authentification sécurisée (JWT) et bonnes pratiques API</span>
               </div>
               <div className="highlight-item">
                 <span className="highlight-icon">✓</span>
-                <span>Intégration d'APIs tierces et traitement automatique</span>
+                <span>Workflows automatisés via webhooks et logique conditionnelle</span>
               </div>
             </div>
           </motion.div>
@@ -498,7 +488,7 @@ function App() {
             viewport={{ once: true }}
           >
             <p className="contact-text">
-              Un projet d'automation ? Une opportunité de collaboration ? 
+              Une opportunité, un projet, une collaboration ?
               N'hésitez pas à me contacter !
             </p>
             
@@ -513,17 +503,6 @@ function App() {
             </motion.button>
             
             <div className="social-links">
-              <motion.a 
-                href="https://github.com/fadwabenmoussa" 
-                className="social-link"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </motion.a>
               <motion.a 
                 href="https://linkedin.com/in/fadwa-ben-moussa" 
                 className="social-link"
@@ -555,7 +534,7 @@ function App() {
         </div>
       </section>
 
-      {/* Modal Formulaire de Contact - CORRIGÉ */}
+      {/* Modal Formulaire de Contact */}
       <AnimatePresence>
         {showContactForm && (
           <>
@@ -651,7 +630,7 @@ function App() {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
-          <p className="pixel-text">Made with ❤️ and automation 🤖</p>
+          <p className="pixel-text">Made with ❤️ by Fadwa Ben Moussa</p>
           <p>© 2025 Fadwa Ben Moussa. All rights reserved.</p>
         </div>
       </footer>
