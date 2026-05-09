@@ -1062,3 +1062,168 @@ textarea.form-input {
     padding: 2rem;
   }
 }
+
+.code-display {
+  overflow-x: auto;
+}
+
+.code-snippet {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.75rem;
+}
+
+/* Fix highlight items sur mobile */
+.highlight-item {
+  flex-wrap: wrap;
+}
+
+/* ===== BREAKPOINT 768px ===== */
+@media (max-width: 768px) {
+  /* Nav hamburger */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 14, 39, 0.97);
+    border-top: 1px solid var(--primary);
+    padding: 1rem 0;
+    gap: 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 107, 157, 0.1);
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 8px var(--glow-primary);
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 5rem 1rem 2rem;
+  }
+
+  .arcade-frame {
+    padding: 1rem;
+  }
+
+  /* Sections padding */
+  .container {
+    padding: 3rem 1rem;
+  }
+
+  .about-section,
+  .automation-section,
+  .skills-section,
+  .projects-section,
+  .contact-section {
+    padding: 4rem 0;
+  }
+
+  /* Modal */
+  .contact-modal {
+    width: 95%;
+    max-height: 90vh;
+    padding: 1.2rem;
+  }
+}
+
+/* ===== BREAKPOINT 480px ===== */
+@media (max-width: 480px) {
+  .nav-content {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 0.75rem;
+  }
+
+  .glitch-text {
+    font-size: clamp(1.6rem, 8vw, 2.5rem);
+  }
+
+  .subtitle {
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+  }
+
+  .btn-arcade {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .section-title {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .automation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-modal {
+    padding: 1rem;
+  }
+
+  .modal-title {
+    font-size: 1.1rem;
+  }
+}
